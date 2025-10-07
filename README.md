@@ -50,3 +50,101 @@ A robust, user-friendly, and cross-platform Java application for securing your d
 3. **Run the application:**
    ```bash
    java -cp bin crypto.main.MainApp
+
+---
+
+### 🛠️ Usage
+
+1. **Launch the application from your terminal.**
+
+2. **Select either Encrypt or Decrypt.**
+
+3. **Choose your input method: enter text directly or select a file.**
+
+4. **Pick an encryption algorithm from the list.**
+
+5. **Provide a key when prompted (e.g., shift number for Caesar Cipher).**
+
+6. **View results:**
+
+```bash
+
+Encrypted text → saved in encrypted.txt
+
+Decrypted text → saved in decrypted.txt
+
+Operation log → appended to log.txt
+
+```
+
+### 💡 Example Usage (Caesar Cipher)
+```bash
+ Select 'Encrypt'
+ Choose 'File'
+ Enter file path: 'sample.txt'
+ Choose algorithm: 'Caesar Cipher'
+ Enter key: 3
+ Check 'encrypted.txt' for the result!
+```
+
+---
+
+### 🧰 Tech Stack
+
+```bash
+Language: Java
+
+Paradigm: Object-Oriented Programming (OOP)
+
+Key Concepts: Inheritance, Polymorphism, Encapsulation, Exception Handling, File I/O
+```
+
+---
+
+### 👥 Contributing
+
+   **We welcome contributions! Please feel free to submit issues and pull requests.**
+
+1. **Fork the project**
+
+2. **Create your Feature Branch**
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+
+3. **Commit your Changes**
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+
+4. **Push to the Branch**
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+
+5. **Open a Pull Request**
+
+---
+
+### 📁 Project Structure
+
+```text
+Inferno-Encrypter-cum-Decrypter-CipherGuard/
+├── 📂 crypto
+│   ├── 📂 algorithms          # Cipher implementations
+│   │   ├── Cipher.java        # Abstract base class
+│   │   ├── CaesarCipher.java
+│   │   ├── XORCipher.java
+│   │   └── SubstitutionCipher.java
+│   ├── 📂 io                  # File operations
+│   │   └── FileHandler.java
+│   ├── 📂 exceptions          # Custom error handling
+│   │   ├── InvalidKeyException.java
+│   │   └── CryptoException.java
+│   └── 📂 main                # Application entry point
+│       └── MainApp.java
+├── 📜 encrypted.txt           # Generated output
+├── 📜 decrypted.txt           # Generated output
+├── 📜 log.txt                 # Operation history
+└── 📜 README.md
+
