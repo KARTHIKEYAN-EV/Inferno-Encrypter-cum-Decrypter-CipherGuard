@@ -13,7 +13,7 @@ public abstract class Cipher{
 	protected void incrementEncryptionCount(){
 		encryptionCount++;
 	}
-	public int getEncryptionCount(){
+	public static int getEncryptionCount(){
 		return encryptionCount;
 	}
 }
