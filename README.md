@@ -147,4 +147,14 @@ Inferno-Encrypter-cum-Decrypter-CipherGuard/
 ├── 📜 decrypted.txt           # Generated output
 ├── 📜 log.txt                 # Operation history
 └── 📜 README.md
+```
+---
+
+### 🙌 Acknowledgments
+
+1. **Inspired by the need for simple, educational tools in cryptography.**
+
+2. **Thanks to all contributors who spend time improving this project.**
+
+---
 
