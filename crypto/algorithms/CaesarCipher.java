@@ -20,6 +20,6 @@ public class CaesarCipher extends Cipher{
 	}
 	public String decrypt(String text,String key){
 		int shift=Integer.parseInt(key);     //convert key to int
-		return encrypt(text,26-shift);       // decryption=shift backward
+		return encrypt(text,""+(26-shift));       // decryption=shift backward
 	}
 }
