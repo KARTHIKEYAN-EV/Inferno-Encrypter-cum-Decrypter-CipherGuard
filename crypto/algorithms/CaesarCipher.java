@@ -6,7 +6,16 @@ public class CaesarCipher extends Cipher{
 	public String encrypt(String text,String key){
 		StringBuilder result=new StringBuilder();
 		int shift=Integer.parseInt(key);     //convert key to int
-		
+		for (char character : text.toCharArray()) {
+            		if (Character.isLetter(character)) {
+                		char base = Character.isLowerCase(character) ? 'a' : 'A';
+                		char encrypted = (char) ((character - base + shift) % 26 + base);
+               			result.append(encrypted);
+            		} 
+			else {
+                		result.append(character);  // Keep spaces,special characters and punctuation
+            		}
+        	}
 		return result.toString();
 	}
 	public String decrypt(String text,String key){
