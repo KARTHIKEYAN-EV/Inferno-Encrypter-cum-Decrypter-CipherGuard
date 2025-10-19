@@ -1,49 +1,68 @@
 package algorithms;
+
+import exceptions.InvalidKeyException;
+import java.util.HashMap;
+import java.util.Map;
+
 public class SubstitutionCipher extends Cipher {
-	SubstitutionCipher(){
-		super("Substitution Cipher");
-	}
-    private Map<Character, Character> encryptionMap;
-    private Map<Character, Character> decryptionMap;
-    public String encrypt(String text, String key) {
-        generateMaps(key);  // Use key to create mapping
-        StringBuilder result = new StringBuilder();
-        for (char c : text.toCharArray()) {
-            if (Character.isLetter(c)) {
-                result.append(encryptionMap.getOrDefault(c, c));
+
+    private final Map<Character, Character> encryptMap;
+    private final Map<Character, Character> decryptMap;
+
+    public SubstitutionCipher(Map<Character, Character> mapping) throws InvalidKeyException {
+        if (mapping == null || mapping.size() != 26) {
+            throw new InvalidKeyException("Mapping must have 26 characters for A-Z");
+        }
+
+        encryptMap = new HashMap<>();
+        decryptMap = new HashMap<>();
+
+        for (char ch = 'A'; ch <= 'Z'; ch++) {
+            char mapped = Character.toUpperCase(mapping.get(ch));
+            encryptMap.put(ch, mapped);
+            decryptMap.put(mapped, ch);
+        }
+    }
+
+    @Override
+    public String encrypt(String text, int key) throws InvalidKeyException {
+        final StringBuilder result = new StringBuilder();
+
+        for (char ch : text.toCharArray()) {
+            if (Character.isUpperCase(ch)) {
+                result.append(encryptMap.get(ch));
+            } else if (Character.isLowerCase(ch)) {
+                result.append(Character.toLowerCase(encryptMap.get(Character.toUpperCase(ch))));
             } else {
-                result.append(c);
+                result.append(ch); // leave non-letters unchanged
             }
         }
         return result.toString();
     }
-    public String decrypt(String text, String key) {
-        generateMaps(key);
-        StringBuilder result = new StringBuilder();
-        for (char c : text.toCharArray()) {
-            if (Character.isLetter(c)) {
-                result.append(decryptionMap.getOrDefault(c, c));
+
+    @Override
+    public String decrypt(String text, int key) throws InvalidKeyException {
+        final StringBuilder result = new StringBuilder();
+
+        for (char ch : text.toCharArray()) {
+            if (Character.isUpperCase(ch)) {
+                result.append(decryptMap.get(ch));
+            } else if (Character.isLowerCase(ch)) {
+                result.append(Character.toLowerCase(decryptMap.get(Character.toUpperCase(ch))));
             } else {
-                result.append(c);
+                result.append(ch);
             }
         }
         return result.toString();
     }
-    private void generateMaps(String key) {
-        encryptionMap = new HashMap<>();
-        decryptionMap = new HashMap<>();
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String shuffled = shuffleAlphabet(key);  // Use key to shuffle alphabet
-        for (int i = 0; i < alphabet.length(); i++) {
-            char normal = alphabet.charAt(i);
-            char sub = shuffled.charAt(i);
-            encryptionMap.put(normal, sub);
-            decryptionMap.put(sub, normal);
-            // Add lowercase versions too
-            encryptionMap.put(Character.toLowerCase(normal), 
-                            Character.toLowerCase(sub));
-            decryptionMap.put(Character.toLowerCase(sub), 
-                            Character.toLowerCase(normal));
-        }
+
+    @Override
+    public String getName() {
+        return "Substitution Cipher";
+    }
+
+    @Override
+    public String toString() {
+        return "Cipher: Substitution Cipher";
     }
 }
