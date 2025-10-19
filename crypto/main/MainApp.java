@@ -27,6 +27,7 @@ public class MainApp {
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline
 
+            // Choose cipher
             switch (choice) {
                 case 1:
                     cipher = new CaesarCipher();
@@ -61,6 +62,7 @@ public class MainApp {
                     continue;
             }
 
+            // Input type
             System.out.println("\nInput source:");
             System.out.println("1. File");
             System.out.println("2. Text");
@@ -89,6 +91,7 @@ public class MainApp {
                 continue;
             }
 
+            // Key input (only for Caesar and XOR)
             int key = 0;
             if (!(cipher instanceof SubstitutionCipher)) {
                 System.out.print("Enter key (integer): ");
@@ -96,6 +99,7 @@ public class MainApp {
                 sc.nextLine(); // consume newline
             }
 
+            // Action: Encrypt / Decrypt
             System.out.println("1. Encrypt");
             System.out.println("2. Decrypt");
             System.out.print("Select action: ");
@@ -106,27 +110,30 @@ public class MainApp {
                 String result = "";
                 if (action == 1) {
                     result = cipher.encrypt(input, key);
-                    System.out.println("\n=== Result ===\n" + result);
-                    if (inputType == 1) {
-                        FileHandler.writeFile(outputFile, result);
-                        Logger.log(cipher.getName() + " encrypted file to " + outputFile);
-                        System.out.println("File encrypted successfully!");
-                    }
                 } else if (action == 2) {
                     result = cipher.decrypt(input, key);
-                    System.out.println("\n=== Result ===\n" + result);
-                    if (inputType == 1) {
-                        FileHandler.writeFile(outputFile, result);
-                        Logger.log(cipher.getName() + " decrypted file to " + outputFile);
-                        System.out.println("File decrypted successfully!");
-                    }
                 } else {
                     System.out.println("Invalid action.");
+                    continue;
                 }
+
+                // Show result
+                System.out.println("\n=== Result ===\n" + result);
+
+                // Save to file if file input
+                if (inputType == 1) {
+                    try {
+                        FileHandler.writeFile(outputFile, result);
+                        Logger.log(cipher.getName() + " " + (action == 1 ? "encrypted" : "decrypted") + " file to "
+                                + outputFile);
+                        System.out.println("File processed successfully!");
+                    } catch (IOException e) {
+                        System.out.println("File write error: " + e.getMessage());
+                    }
+                }
+
             } catch (InvalidKeyException e) {
                 System.out.println("Key error: " + e.getMessage());
-            } catch (IOException e) {
-                System.out.println("File write error: " + e.getMessage());
             }
         }
 
