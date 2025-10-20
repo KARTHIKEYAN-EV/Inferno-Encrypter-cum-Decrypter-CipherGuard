@@ -725,15 +725,7 @@ public class MainAppUI extends JFrame {
                 return new XORCipher();
             case "Substitution Cipher":
                 String mappingStr = mappingField.getText().toUpperCase().trim();
-                if (mappingStr.length() != 26) {
-                    throw new InvalidKeyException("Mapping must be exactly 26 letters");
-                }
-                Map<Character, Character> mapping = new HashMap<>();
-                char ch = 'A';
-                for (int i = 0; i < 26; i++, ch++) {
-                    mapping.put(ch, mappingStr.charAt(i));
-                }
-                return new SubstitutionCipher(mapping);
+                return new SubstitutionCipher(mappingStr);
             default:
                 throw new InvalidKeyException("Unknown cipher selected");
         }
