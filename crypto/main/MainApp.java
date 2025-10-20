@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import algorithms.*;
 import exceptions.InvalidKeyException;
@@ -38,21 +39,7 @@ public class MainApp {
                 case 3:
                     System.out.println("Enter 26-letter mapping (A-Z) in order:");
                     String mappingStr = sc.nextLine().toUpperCase();
-                    if (mappingStr.length() != 26) {
-                        System.out.println("Invalid mapping. Must be 26 letters.");
-                        continue;
-                    }
-                    Map<Character, Character> mapping = new HashMap<>();
-                    char ch = 'A';
-                    for (int i = 0; i < 26; i++, ch++) {
-                        mapping.put(ch, mappingStr.charAt(i));
-                    }
-                    try {
-                        cipher = new SubstitutionCipher(mapping);
-                    } catch (InvalidKeyException e) {
-                        System.out.println("Key error: " + e.getMessage());
-                        continue;
-                    }
+                    cipher = new SubstitutionCipher(mappingStr);
                     break;
                 case 4:
                     running = false;
@@ -94,8 +81,24 @@ public class MainApp {
             // Key input (only for Caesar and XOR)
             int key = 0;
             if (!(cipher instanceof SubstitutionCipher)) {
-                System.out.print("Enter key (integer): ");
-                key = sc.nextInt();
+                
+                int k = 0;
+                do{
+                    try{
+                        System.out.print("Enter key (integer): ");
+                        key = sc.nextInt();
+                        if (key<0) throw new InvalidKeyException ("Key must be positive for Caesar Cipher");
+                        k=1;
+                    }
+                    catch(InputMismatchException e){
+                        sc.nextLine();
+                        System.out.println("Error: Enter an integer value");
+                    }
+                    catch(Exception e){
+                        sc.nextLine();
+                        System.out.println("Error: "+e.getMessage());
+                    }
+                }while(k==0);
                 sc.nextLine(); // consume newline
             }
 

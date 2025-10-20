@@ -57,13 +57,13 @@ A robust, user-friendly, and cross-platform Java application for securing your d
 
 1. **Launch the application from your terminal.**
 
-2. **Select either Encrypt or Decrypt.**
+2. **Pick an encryption algorithm from the list.**
 
-3. **Choose your input method: enter text directly or select a file.**
+3. **Provide a key when prompted (e.g., shift number for Caesar Cipher).**
 
-4. **Pick an encryption algorithm from the list.**
+4. **Choose your input method: enter text directly or select a file.** 
 
-5. **Provide a key when prompted (e.g., shift number for Caesar Cipher).**
+5. **Select either Encrypt or Decrypt.**
 
 6. **View results:**
 
@@ -79,12 +79,12 @@ Operation log → appended to log.txt
 
 ### 💡 Example Usage (Caesar Cipher)
 ```bash
- Select 'Encrypt'
- Choose 'File'
- Enter file path: 'sample.txt'
  Choose algorithm: 'Caesar Cipher'
  Enter key: 3
- Check 'encrypted.txt' for the result!
+ Choose 'File'
+ Enter file path: 'C:/Inferno-Encrypter-cum-Decrypter-CipherGuard/sample.txt'
+ Select 'Encrypt'
+ Check 'sample.txt' for the result!
 ```
 
 ---
@@ -139,12 +139,18 @@ Inferno-Encrypter-cum-Decrypter-CipherGuard/
 │   ├── 📂 io                  # File operations
 │   │   └── FileHandler.java
 │   ├── 📂 exceptions          # Custom error handling
-│   │   ├── InvalidKeyException.java
-│   │   └── CryptoException.java
-│   └── 📂 main                # Application entry point
-│       └── MainApp.java
-├── 📜 encrypted.txt           # Generated output
-├── 📜 decrypted.txt           # Generated output
+│   │   └── InvalidKeyException.java
+│   ├── 📂 main                # Application entry point
+│   │   ├── Main.java
+│   │   ├── MainApp.java
+│   │   └── MainAppUI.java
+│   └── 📂 bin                 # Store class files
+│       ├── 📂 algorithms
+│       ├── 📂 io
+│       ├── 📂 exceptions
+│       └── 📂 main
+├── 📜 sample.txt              # Sample Iutput
+├── 📜 output.txt              # Sample Generated Output
 ├── 📜 log.txt                 # Operation history
 └── 📜 README.md
 ```
@@ -157,4 +163,3 @@ Inferno-Encrypter-cum-Decrypter-CipherGuard/
 2. **Thanks to all contributors who spend time improving this project.**
 
 ---
-
