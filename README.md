@@ -1,22 +1,23 @@
-🔐 Inferno-Encrypter-cum-Decrypter: CipherGuard
+# 🔐 Inferno-Encrypter-cum-Decrypter: CipherGuard
 
 A robust, user-friendly, and cross-platform Java application for securing your digital world.  
-CipherGuard allows you to effortlessly encrypt and decrypt both text and files using multiple classic ciphers, all through an intuitive console interface.
+**CipherGuard** allows you to effortlessly encrypt and decrypt both text and files using multiple classic ciphers, all through an intuitive console interface.
 
 ---
 
- ✨ Features
+## ✨ Features
 
- Feature 		 Description 
- Multiple Ciphers 	 Choose from Caesar, XOR, and Substitution cipher algorithms. 
- Multi-Format Support 	 Encrypt and decrypt both plain text and entire files. 
- OOP Principles 	 Built with clean Java, utilizing inheritance, polymorphism, and encapsulation. 
- Cross-Platform 	 Runs anywhere Java is installed (Windows, macOS, Linux). 
- Operation Logging 	 Automatically logs all encryption and decryption activities to `log.txt`. 
+| Feature | Description |
+|----------|-------------|
+| **Multiple Ciphers** | Choose from Caesar, XOR, and Substitution cipher algorithms. |
+| **Multi-Format Support** | Encrypt and decrypt both plain text and entire files. |
+| **OOP Principles** | Built with clean Java, utilizing inheritance, polymorphism, and encapsulation. |
+| **Cross-Platform** | Runs anywhere Java is installed (Windows, macOS, Linux). |
+| **Operation Logging** | Automatically logs all encryption and decryption activities to `log.txt`. |
 
 ---
 
- 📸 Demo
+## 📸 Demo
 | CipherGuard v1.0 |
 |-----------------------|
 | 1. 🔒 Encrypt Data |
@@ -25,9 +26,9 @@ CipherGuard allows you to effortlessly encrypt and decrypt both text and files u
 
 ---
 
- 🚀 Getting Started
+## 🚀 Getting Started
 
- 🧩 Prerequisites
+### 🧩 Prerequisites
 
 - Java Development Kit (JDK) 8 or higher  
 - A terminal or command prompt  
@@ -35,36 +36,36 @@ CipherGuard allows you to effortlessly encrypt and decrypt both text and files u
 
 ---
 
- ⚙️ Installation
+### ⚙️ Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/Inferno-Encrypter-cum-Decrypter-CipherGuard.git
    cd Inferno-Encrypter-cum-Decrypter-CipherGuard
 
-2. Compile the Java files:
+2. **Compile the Java files:**
    ```bash
    javac -d bin crypto/main/*.java crypto/algorithms/*.java crypto/io/*.java crypto/exceptions/*.java
 
-3. Run the application:
+3. **Run the application:**
    ```bash
    java -cp bin crypto.main.MainApp
 
 ---
 
- 🛠️ Usage
+### 🛠️ Usage
 
-1. Launch the application from your terminal.
+1. **Launch the application from your terminal.**
 
-2. Pick an encryption algorithm from the list.
+2. **Pick an encryption algorithm from the list.**
 
-3. Provide a key when prompted (e.g., shift number for Caesar Cipher).
+3. **Provide a key when prompted (e.g., shift number for Caesar Cipher).**
 
-4. Choose your input method: enter text directly or select a file.
+4. **Choose your input method: enter text directly or select a file.** 
 
-5. Select either Encrypt or Decrypt. 
+5. **Select either Encrypt or Decrypt.**
 
-6. View results:
+6. **View results:**
 
 ```bash
 
@@ -76,20 +77,19 @@ Operation log → appended to log.txt
 
 ```
 
- 💡 Example Usage (Caesar Cipher)
+### 💡 Example Usage (Caesar Cipher)
 ```bash
- 
  Choose algorithm: 'Caesar Cipher'
  Enter key: 3
  Choose 'File'
- Enter file path: 'sample.txt'
+ Enter file path: 'C:/Inferno-Encrypter-cum-Decrypter-CipherGuard/sample.txt'
  Select 'Encrypt'
- Check 'encrypted.txt' for the result!
+ Check 'sample.txt' for the result!
 ```
 
 ---
 
- 🧰 Tech Stack
+### 🧰 Tech Stack
 
 ```bash
 Language: Java
@@ -101,61 +101,65 @@ Key Concepts: Inheritance, Polymorphism, Encapsulation, Exception Handling, File
 
 ---
 
- 👥 Contributing
+### 👥 Contributing
 
-   We welcome contributions! Please feel free to submit issues and pull requests.
+   **We welcome contributions! Please feel free to submit issues and pull requests.**
 
-1. Fork the project
+1. **Fork the project**
 
-2. Create your Feature Branch
+2. **Create your Feature Branch**
    ```bash
    git checkout -b feature/AmazingFeature
    ```
 
-3. Commit your Changes
+3. **Commit your Changes**
    ```bash
    git commit -m 'Add some AmazingFeature'
    ```
 
-4. Push to the Branch
+4. **Push to the Branch**
    ```bash
    git push origin feature/AmazingFeature
    ```
 
-5. Open a Pull Request
+5. **Open a Pull Request**
 
 ---
 
- 📁 Project Structure
+### 📁 Project Structure
 
 ```text
 Inferno-Encrypter-cum-Decrypter-CipherGuard/
 ├── 📂 crypto
-│   ├── 📂 algorithms           Cipher implementations
-│   │   ├── Cipher.java         Abstract base class
+│   ├── 📂 algorithms          # Cipher implementations
+│   │   ├── Cipher.java        # Abstract base class
 │   │   ├── CaesarCipher.java
 │   │   ├── XORCipher.java
 │   │   └── SubstitutionCipher.java
-│   ├── 📂 io                   File operations
+│   ├── 📂 io                  # File operations
 │   │   └── FileHandler.java
-│   ├── 📂 exceptions           Custom error handling		
+│   ├── 📂 exceptions          # Custom error handling
 │   │   └── InvalidKeyException.java
-│   └── 📂 main                 Application entry point
-│       ├── Main.java
-│       ├── MainAppUI.java
-│       └── MainApp.java
-├── 📜 encrypted.txt            Sample Generated output
-├── 📜 decrypted.txt            Sample Generated output
-├── 📜 log.txt                  Operation history
+│   ├── 📂 main                # Application entry point
+│   │   ├── Main.java
+│   │   ├── MainApp.java
+│   │   └── MainAppUI.java
+│   └── 📂 bin                 # Store class files
+│       ├── 📂 algorithms
+│       ├── 📂 io
+│       ├── 📂 exceptions
+│       └── 📂 main
+├── 📜 sample.txt              # Sample Iutput
+├── 📜 output.txt              # Sample Generated Output
+├── 📜 log.txt                 # Operation history
 └── 📜 README.md
 ```
 ---
 
- 🙌 Acknowledgments
+### 🙌 Acknowledgments
 
-1. Inspired by the need for simple, educational tools in cryptography.
+1. **Inspired by the need for simple, educational tools in cryptography.**
 
-2. Thanks to all contributors who spend time improving this project.
+2. **Thanks to all contributors who spend time improving this project.**
 
 ---
-
