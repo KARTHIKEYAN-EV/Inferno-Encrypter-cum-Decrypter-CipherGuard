@@ -163,3 +163,4 @@ Inferno-Encrypter-cum-Decrypter-CipherGuard/
 2. **Thanks to all contributors who spend time improving this project.**
 
 ---
+"# InfernoCrypt-Encrypter-cum-Decrypter" 
